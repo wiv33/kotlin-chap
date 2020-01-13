@@ -1,12 +1,16 @@
 package com.psawesome.chapter03
 
+import com.psawesome.chapter03.Customer.*
 import org.springframework.stereotype.Service
 import java.util.concurrent.ConcurrentHashMap
 
 @Service
 class CustomerServiceImpl : CustomerService {
     companion object {
-        val initialCustomers = arrayOf(Customer(1, "kotlin"), Customer(2, "Spring"), Customer(3, "micro"))
+        val initialCustomers =
+                arrayOf(Customer(1, "kotlin", Telephone("+44", "23809423")),
+                        Customer(2, "Spring"),
+                        Customer(3, "micro",Telephone("+82", "10284208523")))
     }
 
     val customers = ConcurrentHashMap<Int, Customer>(initialCustomers.associateBy(Customer::id))

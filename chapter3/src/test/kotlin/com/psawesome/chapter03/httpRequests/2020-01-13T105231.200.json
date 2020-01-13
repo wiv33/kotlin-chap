@@ -1,0 +1,22 @@
+[
+  {
+    "id": 1,
+    "name": "kotlin",
+    "telephone": {
+      "countryCode": "+44",
+      "telephoneNumber": "23809423"
+    }
+  },
+  {
+    "id": 2,
+    "name": "Spring"
+  },
+  {
+    "id": 3,
+    "name": "micro",
+    "telephone": {
+      "countryCode": "+82",
+      "telephoneNumber": "10284208523"
+    }
+  }
+]
