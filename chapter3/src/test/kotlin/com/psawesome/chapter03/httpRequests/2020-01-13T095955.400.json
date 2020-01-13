@@ -1,1 +1,0 @@
-{"timestamp":"2020-01-13T12:59:54.956+0000","status":400,"error":"Bad Request","message":"Failed to convert value of type 'java.lang.String' to required type 'int'; nested exception is java.lang.NumberFormatException: For input string: \"nameFilter=ln\"","path":"/customer/nameFilter=ln"}

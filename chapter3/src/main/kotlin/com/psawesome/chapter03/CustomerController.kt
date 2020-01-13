@@ -13,27 +13,20 @@ DATE: 2020-01-13 월요일 21:06
 class CustomerController {
 
     @Autowired
-    lateinit var customers: ConcurrentHashMap<Int, Customer>
+    private lateinit var customerService: CustomerService
 
     @GetMapping("/customer/{id}")
-    fun getCustomer(@PathVariable id: Int) = customers[id]
+    fun getCustomer(@PathVariable id: Int) = customerService.getCustomer(id)
 
     @PostMapping("/customer")
-    fun createCustomer(@RequestBody customer: Customer) {
-        customers[customer.id] = customer
-    }
+    fun createCustomer(@RequestBody customer: Customer) = customerService.createCustomer(customer)
 
     @DeleteMapping("/customer/{id}")
-    fun deleteCustomer(@PathVariable id: Int) = customers.remove(id)
+    fun deleteCustomer(@PathVariable id: Int) = customerService.deleteCustomer(id)
 
     @PutMapping("/customer/{id}")
-    fun updateCustomer(@PathVariable id: Int, @RequestBody customer: Customer) {
-        customers.remove(id)
-        customers[customer.id] = customer
-    }
+    fun updateCustomer(@PathVariable id: Int, @RequestBody customer: Customer) = customerService.updateCustomer(id, customer)
 
     @GetMapping("/customers")
-    fun getCustomers(@RequestParam(required = false, defaultValue = "") nameFilter: String) =
-            customers.filter { it.value.name.contains(nameFilter, true) }
-                    .map(Map.Entry<Int, Customer>::value).toList()
+    fun getCustomers(@RequestParam(required = false, defaultValue = "") nameFilter: String) = customerService.searchCustomer(nameFilter)
 }
