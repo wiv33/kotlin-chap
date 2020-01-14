@@ -1,6 +1,8 @@
 package com.psawesome.chapter4
 
+import org.springframework.http.ResponseEntity
 import org.springframework.stereotype.Service
+import reactor.core.publisher.Mono
 import reactor.core.publisher.toFlux
 import reactor.core.publisher.toMono
 import java.util.concurrent.ConcurrentHashMap
@@ -23,4 +25,10 @@ class CustomerServiceImpl : CustomerService {
         println("${it.key} : ${it.value}, ${it.value.name}")
         it.value.name.contains(nameFilter, true)
     }.map(Map.Entry<Int, Customer>::value).toFlux()
+
+    override fun createCustomer(customerMono: Mono<Customer>): Mono<*> =
+            customerMono.map {
+                customers[it.id] = it
+                it
+            }
 }
