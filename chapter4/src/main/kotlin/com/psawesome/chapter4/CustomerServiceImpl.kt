@@ -1,6 +1,7 @@
 package com.psawesome.chapter4
 
 import org.springframework.stereotype.Service
+import reactor.core.publisher.toFlux
 import reactor.core.publisher.toMono
 import java.util.concurrent.ConcurrentHashMap
 
@@ -21,5 +22,5 @@ class CustomerServiceImpl : CustomerService {
         println(it)
         println("${it.key} : ${it.value}, ${it.value.name}")
         it.value.name.contains(nameFilter, true)
-    }.map(Map.Entry<Int, Customer>::value).toList()
+    }.map(Map.Entry<Int, Customer>::value).toFlux()
 }
