@@ -1,0 +1,68 @@
+docker run -it -p 27017:27017 --name some-mongo mongo:latest
+
+# mongo bin 디렉토리 안에서
+# 디렉토리 생성
+mkdir data
+
+
+# 데이터베이스 시작
+mongod -dbpath data
+
+# 다른 터미널에서 -
+# connect mongo client
+mongo
+
+# 명령어 입력 가능 상태
+# I CONTROL [initandlisten]
+# >
+
+#
+> db.version()
+(설치한 버전) 3.4.9
+
+> exit
+bye
+
+# 현재 DB 조회
+> show dbs
+admin 00GB
+local 00GB
+
+# 데이터베이스 생성
+> use microservices
+switched to db microservices
+
+# Collection 생성
+> db.createCollection("Customers")
+{ "ok" : 1 }
+
+## insert
+> db.Customers.insertOne( { "name" : "spring" } )
+WriteResult({ "nInserted" : 1 })
+
+## insert two
+> db.Customers.insertMany( [ { "name" : "reactive" }, { "name" : "WebFlux" } ] )
+BulkWriteResult({
+    "writeErrors" : [ ],
+    "writeConcernErrors" : [ ],
+    "nInserted" : 2,
+    "nUpserted" : 0,
+    "nMatched" : 0,
+    "nModified" : 0,
+    "nRemoved" : 0,
+    "upserted" : [ ]
+})
+
+## find
+> db.Customers.find()
+
+## updated
+> db.Customers.update({ "_id" : ObjectId("id") }, { "name" : "Mono" })
+
+## remove
+> db.Customers.remove({ "_id" : ObjectId("id") })
+
+## find - param
+# 대 소문자를 무시(Ignore)하고 앞 뒤로 spring이 포함된 document를 찾는다.
+> db.Customers.find({ "name" : /.*spring.*/i })
+
