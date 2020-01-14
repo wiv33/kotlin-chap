@@ -1,0 +1,13 @@
+version: "3.0"
+
+services:
+  mongo_chapter5:
+    image: mongo
+    ports:
+    - 27017:27017
+
+  redis_chapter5:
+    image: redis
+    ports:
+    - 6379:6379
+
