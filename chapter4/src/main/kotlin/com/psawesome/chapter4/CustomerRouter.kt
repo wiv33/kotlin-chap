@@ -16,10 +16,7 @@ author: PS
 DATE: 2020-01-14 화요일 21:54
  */
 @Component
-class CustomerRouter {
-
-    @Autowired
-    private lateinit var customerHandler: CustomerHandler
+class CustomerRouter(private val customerHandler: CustomerHandler) {
     /**
     *   RouterFunction
     *   DSL (Domain Specific Language)
