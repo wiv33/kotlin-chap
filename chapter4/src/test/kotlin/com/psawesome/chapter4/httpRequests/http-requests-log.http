@@ -1,3 +1,80 @@
+GET http://localhost:8080/functional/customers?nameFilter=in
+Accept: */*
+Cache-Control: no-cache
+Content-Type: application/json
+
+{"id": "7", "name":"PS awesome", "telephone": { "countryCode": "+82", "telephoneNumber": "102837852"}}
+
+<> 2020-01-14T111104.200.json
+
+###
+
+GET http://localhost:8080/functional/customer?nameFilter=in
+Accept: */*
+Cache-Control: no-cache
+Content-Type: application/json
+
+{"id": "7", "name":"PS awesome", "telephone": { "countryCode": "+82", "telephoneNumber": "102837852"}}
+
+<> 2020-01-14T111044.404.json
+
+###
+
+POST http://localhost:8080/functional/customer
+Accept: */*
+Cache-Control: no-cache
+Content-Type: application/json
+
+{"id": "7", "name":"PS awesome", "telephone": { "countryCode": "+82", "telephoneNumber": "102837852"}}
+
+<> 2020-01-14T111019.201.json
+
+###
+
+GET http://localhost:8080/functional/customer/2
+Accept: */*
+Cache-Control: no-cache
+Content-Type: application/json
+
+{"id": "7", "name":"PS awesome", "telephone": { "countryCode": "+82", "telephoneNumber": "102837852"}}
+
+<> 2020-01-14T110949.200.json
+
+###
+
+GET http://localhost:8080/functional/cusmter/2
+Accept: */*
+Cache-Control: no-cache
+Content-Type: application/json
+
+{"id": "7", "name":"PS awesome", "telephone": { "countryCode": "+82", "telephoneNumber": "102837852"}}
+
+<> 2020-01-14T110616.404.json
+
+###
+
+GET http://localhost:8080/functional/cusmters
+Accept: */*
+Cache-Control: no-cache
+Content-Type: application/json
+
+{"id": "7", "name":"PS awesome", "telephone": { "countryCode": "+82", "telephoneNumber": "102837852"}}
+
+<> 2020-01-14T110553.404.json
+
+###
+
+POST http://localhost:8080/functional/cusmter
+Accept: */*
+Cache-Control: no-cache
+Content-Type: application/json
+
+{"id": "7", "name":"PS awesome", "telephone": { "countryCode": "+82", "telephoneNumber": "102837852"}}
+
+<> 2020-01-14T110533.404.json
+
+###
+
 GET http://localhost:8080/functional/customer
 Accept: */*
 Cache-Control: no-cache
