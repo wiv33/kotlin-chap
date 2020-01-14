@@ -1,3 +1,107 @@
+POST http://localhost:8080/functional/customer
+Accept: */*
+Cache-Control: no-cache
+Content-Type: application/json
+
+{"id": "8", "name":"PS awesome", "telephone": { "countryCode": "+82", "telephoneNumber": "102837852"}}
+
+###
+
+POST http://localhost:8080/functional/customer
+Accept: */*
+Cache-Control: no-cache
+Content-Type: application/json
+
+{"id": "7", "name":"PS awesome", "telephone": { "countryCode": "+82", "telephoneNumber": "102837852"}}
+
+<> 2020-01-14T114205.400.json
+
+###
+
+POST http://localhost:8080/functional/customer
+Accept: */*
+Cache-Control: no-cache
+Content-Type: application/json
+
+{"id": "7", "name":"PS awesome", "telephone": { "countryCode": "+82", "telephoneNumber": "102837852"}}
+
+###
+
+POST http://localhost:8080/functional/customer/4
+Accept: */*
+Cache-Control: no-cache
+Content-Type: application/json
+
+{"id": "7", "name":"PS awesome", "telephone": { "countryCode": "+82", "telephoneNumber": "102837852"}}
+
+<> 2020-01-14T114152.404.json
+
+###
+
+GET http://localhost:8080/functional/customer/4
+Accept: */*
+Cache-Control: no-cache
+Content-Type: application/json
+
+{"id": "7", "name":"PS awesome", "telephone": { "countryCode": "+82", "telephoneNumber": "102837852"}} bad Body
+
+###
+
+GET http://localhost:8080/functional/customers
+Accept: */*
+Cache-Control: no-cache
+Content-Type: application/json
+
+{"id": "7", "name":"PS awesome", "telephone": { "countryCode": "+82", "telephoneNumber": "102837852"}} bad Body
+
+<> 2020-01-14T114007.200.json
+
+###
+
+GET http://localhost:8080/functional/customers?nameFilter=in
+Accept: */*
+Cache-Control: no-cache
+Content-Type: application/json
+
+{"id": "7", "name":"PS awesome", "telephone": { "countryCode": "+82", "telephoneNumber": "102837852"}} bad Body
+
+<> 2020-01-14T113958.200.json
+
+###
+
+GET http://localhost:8080/functional/customer?nameFilter=in
+Accept: */*
+Cache-Control: no-cache
+Content-Type: application/json
+
+{"id": "7", "name":"PS awesome", "telephone": { "countryCode": "+82", "telephoneNumber": "102837852"}} bad Body
+
+<> 2020-01-14T113946.404.json
+
+###
+
+POST http://localhost:8080/functional/customer?nameFilter=in
+Accept: */*
+Cache-Control: no-cache
+Content-Type: application/json
+
+{"id": "7", "name":"PS awesome", "telephone": { "countryCode": "+82", "telephoneNumber": "102837852"}} bad Body
+
+<> 2020-01-14T113932.400.json
+
+###
+
+POST http://localhost:8080/functional/customer?nameFilter=in
+Accept: */*
+Cache-Control: no-cache
+Content-Type: application/json
+
+{"id": "7", "name":"PS awesome", "telephone": { "countryCode": "+82", "telephoneNumber": "102837852"}} bad Body
+
+<> 2020-01-14T112933.400.txt
+
+###
+
 GET http://localhost:8080/functional/customers?nameFilter=in
 Accept: */*
 Cache-Control: no-cache
