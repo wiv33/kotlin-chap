@@ -28,6 +28,10 @@ class CustomerHandler(val customerService: CustomerService) {
 //    같은 기능 다른 구현
 //            .switchIfEmpty(notFound().build())
     fun search(serverRequest: ServerRequest) =
+        /*
+            queryParam의 반환은 Optional<String!>, orElse("")로 Optional 을 벗긴다.
+            java optional과 동일 / 반환된 Optional 객체의 value가 Null일 경우 other로 정의한 "" 상태를 반환하도록 한다.
+        */
         ok().body(customerService.searchCustomers(serverRequest.queryParam("nameFilter").orElse("")), Customer::class.java)
 
     fun create(serverRequest: ServerRequest) =
