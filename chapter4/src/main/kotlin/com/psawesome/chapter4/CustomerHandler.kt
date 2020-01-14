@@ -5,10 +5,10 @@ import org.springframework.http.HttpStatus
 import org.springframework.stereotype.Component
 import org.springframework.web.reactive.function.BodyInserters.fromObject
 import org.springframework.web.reactive.function.server.ServerRequest
-import org.springframework.web.reactive.function.server.ServerResponse.ok
-import org.springframework.web.reactive.function.server.ServerResponse.status
+import org.springframework.web.reactive.function.server.ServerResponse.*
 import org.springframework.web.reactive.function.server.body
 import org.springframework.web.reactive.function.server.bodyToMono
+import java.net.URI
 
 /**
 package: com.psawesome.chapter4
@@ -37,5 +37,5 @@ class CustomerHandler(val customerService: CustomerService) {
 
     fun create(serverRequest: ServerRequest) =
             customerService.createCustomer(serverRequest.bodyToMono())
-                    .flatMap { status(HttpStatus.CREATED).body(fromObject(it)) }
+                    .flatMap { created(URI.create("/functional/customer/${it.id}")).build() }
 }
