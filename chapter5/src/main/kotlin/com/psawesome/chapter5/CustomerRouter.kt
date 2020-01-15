@@ -19,5 +19,8 @@ class CustomerRouter(private val customerHandler: CustomerHandler) {
             POST("/", f = customerHandler::create)
             DELETE("/{id}", customerHandler::delete)
         }
+        "/customers".nest {
+            GET("/", customerHandler::search)
+        }
     }
 }

@@ -1,3 +1,69 @@
+GET http://localhost:8080/customers?nameFilter=i
+Accept: */*
+Cache-Control: no-cache
+Content-Type: application/json
+
+{"id":8,"name":"Spring","telephone":{"countryCode":"+82","telephoneNumber":"105874392"}}
+
+<> 2020-01-15T114607.200.json
+
+###
+
+GET http://localhost:8080/customers
+Accept: */*
+Cache-Control: no-cache
+Content-Type: application/json
+
+{"id":8,"name":"Spring","telephone":{"countryCode":"+82","telephoneNumber":"105874392"}}
+
+<> 2020-01-15T114553.200.json
+
+###
+
+GET http://localhost:8080/customers?nameFilter=o
+Accept: */*
+Cache-Control: no-cache
+Content-Type: application/json
+
+{"id":8,"name":"Spring","telephone":{"countryCode":"+82","telephoneNumber":"105874392"}}
+
+<> 2020-01-15T114540.200.json
+
+###
+
+GET http://localhost:8080/customers?nameFilter=o
+Accept: */*
+Cache-Control: no-cache
+Content-Type: application/json
+
+{"id":8,"name":"Spring","telephone":{"countryCode":"+82","telephoneNumber":"105874392"}}
+
+<> 2020-01-15T114418.200.json
+
+###
+
+GET http://localhost:8080/customers
+Accept: */*
+Cache-Control: no-cache
+Content-Type: application/json
+
+{"id":8,"name":"Spring","telephone":{"countryCode":"+82","telephoneNumber":"105874392"}}
+
+<> 2020-01-15T114402.200.json
+
+###
+
+GET http://localhost:8080/customer/8
+Accept: */*
+Cache-Control: no-cache
+Content-Type: application/json
+
+{"id":8,"name":"Spring","telephone":{"countryCode":"+82","telephoneNumber":"105874392"}}
+
+<> 2020-01-15T114357.200.json
+
+###
+
 GET http://localhost:8080/customer/8
 Accept: */*
 Cache-Control: no-cache
