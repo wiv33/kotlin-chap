@@ -1,0 +1,31 @@
+GET http://localhost:8080/customer/8
+Accept: */*
+Cache-Control: no-cache
+Content-Type: application/json
+
+{"id":8,"name":"Spring","telephone":{"countryCode":"+82","telephoneNumber":"105874392"}}
+
+<> 2020-01-15T112352.200.json
+
+###
+
+POST http://localhost:8080/customer
+Accept: */*
+Cache-Control: no-cache
+Content-Type: application/json
+
+{"id":8,"name":"Spring","telephone":{"countryCode":"+82","telephoneNumber":"105874392"}}
+
+###
+
+GET http://localhost:8080/customer/1
+Accept: */*
+Cache-Control: no-cache
+Content-Type: application/json
+
+{"id":7,"name":"Micro","telephone":{"countryCode":"+82","telephoneNumber":"105874392"}}
+
+<> 2020-01-15T112321.200.json
+
+###
+

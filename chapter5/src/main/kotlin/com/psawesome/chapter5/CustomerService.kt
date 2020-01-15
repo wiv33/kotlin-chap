@@ -9,4 +9,6 @@ DATE: 2020-01-15 수요일 22:49
  */
 interface CustomerService {
     fun getCustomer(id: Int): Mono<Customer>
+    fun createCustomer(customer: Mono<Customer>): Mono<Customer>
+    fun deleteCustomer(id: Int): Mono<Boolean>
 }

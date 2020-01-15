@@ -4,8 +4,9 @@ import org.springframework.http.HttpStatus
 import org.springframework.stereotype.Component
 import org.springframework.web.reactive.function.BodyInserters.fromObject
 import org.springframework.web.reactive.function.server.ServerRequest
-import org.springframework.web.reactive.function.server.ServerResponse.ok
-import org.springframework.web.reactive.function.server.ServerResponse.status
+import org.springframework.web.reactive.function.server.ServerResponse.*
+import org.springframework.web.reactive.function.server.bodyToMono
+import java.net.URI
 
 /**
 package: com.psawesome.chapter5
@@ -19,4 +20,14 @@ class CustomerHandler(private val customerService: CustomerService) {
                     .flatMap { ok().body(fromObject(it)) }
                     .switchIfEmpty(status(HttpStatus.NOT_FOUND).build())
 
+    fun create(serverRequest: ServerRequest) =
+            customerService.createCustomer(serverRequest.bodyToMono())
+                    .flatMap { created(URI.create("/customer/${it.id}")).build() }
+
+    fun delete(serverRequest: ServerRequest) =
+            customerService.deleteCustomer(serverRequest.pathVariable("id").toInt())
+                    .flatMap {
+                        if (it) ok().build()
+                        else status(HttpStatus.NOT_FOUND).build()
+                    }
 }
