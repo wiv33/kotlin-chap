@@ -1,4 +1,4 @@
-docker run -it -p 27017:27017 --name some-mongo mongo:latest
+docker run -d -p 27017:27017 --name some-mongo mongo:latest
 
 # mongo bin 디렉토리 안에서
 # 디렉토리 생성
