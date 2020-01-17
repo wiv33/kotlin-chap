@@ -1,0 +1,65 @@
+# 주 사용 명령어
+
+docker service [command] [option]
+
+command
+- create
+- rm [service name]
+- ls
+
+option
+--publish [local port:container port]
+--name [service name]
+
+# 1. Create 
+docker service create --name registry --publish 5000:5000 registry
+
+# -> 확인
+# localhost:5000 호출 시 서버가 살아있음을 확인할 수 있다.
+docker service ls
+
+# jar 패키징
+# Dockerfile 생성
+# Dockerfile build
+docker build . -t hello
+
+# docker tag 지정
+docker tag hello localhost:5000/hello
+
+# docker push
+docker push localhost:5000/hello
+
+# 이렇게 하면 Docker registry에 등록된다.
+>> LOG
+The push refers to repository [localhost:5000/hello]
+Get http://localhost:5000/v2/: net/http: request canceled (Client.Timeout exceeded while awaiting headers)
+
+# 서비스 만들기로 스웜에 서비스로 추가한다.
+docker service create --name hello-service --publish 8080:8080 localhost:5000/hello
+
+# scale out
+docker service scale hello-service=3
+
+# scale out 확인
+docker service ls
+
+>> LOG
+ID                  NAME                MODE                REPLICAS
+tz735v4w1tcu        hello-service       replicated          3/3
+
+
+# scale in 
+docker service scale hello-service=0
+
+# 확인
+docker service ls
+
+
+# scale out
+docker service scale hello-service=3
+
+# 특정 container LOG 확인
+docker service logs -f [CONTAINER ID]
+
+# hello-service 삭제
+docker service rm hello-service
