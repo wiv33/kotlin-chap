@@ -2,6 +2,7 @@ package com.psawesome.microservices
 
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.RestController
+import reactor.core.publisher.Mono
 import java.util.*
 import java.util.concurrent.atomic.AtomicInteger
 
@@ -19,6 +20,6 @@ class HelloController {
     }
 
     @GetMapping("/hello")
-    fun myHello() = "Hello I', $id and I have been called ${total.incrementAndGet()} time(s)"
+    fun myHello() = Mono.just("Hello I', $id and I have been called ${total.incrementAndGet()} time(s)")
 
 }
