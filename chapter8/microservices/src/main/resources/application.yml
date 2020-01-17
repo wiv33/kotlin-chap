@@ -1,0 +1,10 @@
+spring:
+  reactor:
+    stacktrace-mode:
+      enabled: true
+
+logging:
+  level:
+    org:
+      springframework:
+        web: debug
