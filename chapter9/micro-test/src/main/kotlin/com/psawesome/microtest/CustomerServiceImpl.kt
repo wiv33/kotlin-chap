@@ -1,6 +1,8 @@
 package com.psawesome.microtest
 
+import org.springframework.beans.factory.annotation.Qualifier
 import org.springframework.stereotype.Component
+import org.springframework.stereotype.Service
 import reactor.core.publisher.Flux
 import reactor.core.publisher.Mono
 import reactor.core.publisher.toFlux
@@ -12,7 +14,7 @@ package: com.psawesome.microtest
 author: PS
 DATE: 2020-01-17 금요일 22:50
  */
-@Component
+@Service
 class CustomerServiceImpl: CustomerService {
 
     companion object {
