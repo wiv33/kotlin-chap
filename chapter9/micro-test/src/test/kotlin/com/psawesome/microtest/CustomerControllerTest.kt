@@ -46,6 +46,19 @@ class CustomerControllerTest {
     }
 
     @Test
+    fun `get customer JSON`() {
+        given(service.getCustomer(2)).willReturn(Mono.just(Customer(2, "WebFlux")))
+
+        testClient
+                .get()
+                .uri("/customer/{id}", 2)
+                .exchange()
+                .expectStatus().isOk
+                .expectBody()
+                .json("{\"id\":2,\"name\":\"WebFlux\"}")
+    }
+
+    @Test
     fun `get customers`() {
         given(service.getAllCustomers()).willReturn(Flux.just(
                 Customer(1, "Kotlin"),
