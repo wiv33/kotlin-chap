@@ -3,6 +3,10 @@ management:
     web:
       exposure:
         include: health,metrics,httptrace
+      base-path: /management
   endpoint:
     health:
       show-details: always
+
+  server:
+    port: 8089
