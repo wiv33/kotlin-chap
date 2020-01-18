@@ -2,7 +2,7 @@ management:
   endpoints:
     web:
       exposure:
-        include: health,metrics,trace
+        include: health,metrics,httptrace
   endpoint:
     health:
       show-details: always
